@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  cassiamarylima_site:
+    image: cassiamarylp:latest
+    networks:
+      - network_public
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=network_public
+
+        - traefik.http.routers.cassiamarylima-www.rule=Host(`www.cassiamarylima.com.br`)
+        - traefik.http.routers.cassiamarylima-www.entrypoints=websecure
+        - traefik.http.routers.cassiamarylima-www.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.cassiamarylima-www.middlewares=cassiamarylima-redirect-www
+
+        - traefik.http.middlewares.cassiamarylima-redirect-www.redirectregex.regex=^https://www\\.(.*)
+        - traefik.http.middlewares.cassiamarylima-redirect-www.redirectregex.replacement=https://$${1}
+        - traefik.http.middlewares.cassiamarylima-redirect-www.redirectregex.permanent=true
+
+        - traefik.http.routers.cassiamarylima.rule=Host(`cassiamarylima.com.br`)
+        - traefik.http.routers.cassiamarylima.entrypoints=websecure
+        - traefik.http.routers.cassiamarylima.tls.certresolver=letsencryptresolver
+        - traefik.http.services.cassiamarylima.loadbalancer.server.port=80
+
+networks:
+  network_public:
+    external: true
