@@ -10,7 +10,7 @@ RUN git clone --depth 1 --branch "${REPO_REF}" "${REPO_URL}" project
 
 FROM nginx:1.27-alpine
 
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=source /tmp/project/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=source /tmp/project/index.html /usr/share/nginx/html/index.html
 COPY --from=source /tmp/project/assets /usr/share/nginx/html/assets
 
