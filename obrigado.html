@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Obrigada — Método (Re)Construir</title>
+    <meta
+      name="description"
+      content="Seu primeiro passo foi dado. Fale com a Cássia no WhatsApp para agendar sua consulta e dar sequência à sua reconstrução."
+    />
+    <script src="assets/templates/digital-architect.aura.build/assets/resource_3fa48481346f.js"></script>
+    <script src="assets/templates/digital-architect.aura.build/assets/iconify-icon_d39ffc6e4c56.js"></script>
+    <link
+      href="assets/templates/digital-architect.aura.build/assets/css2_19fd9cc6b396.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/templates/animations-gemini/assets/css2_8e191ef32247.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/templates/animations-gemini/assets/css2_2b2d87bc82d8.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/templates/animations-gemini2/assets/css2_604c95cc5779.css"
+      rel="stylesheet"
+    />
+
+    <script src="assets/js/shared/tailwind-config.js"></script>
+    <link href="assets/css/shared/blossom-core.css" rel="stylesheet" />
+    <link href="assets/css/pages/home.css" rel="stylesheet" />
+
+    <style>
+      /* Animação do selo de confirmação — coerente com o sistema */
+      .thanks-badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 9999px;
+        background: linear-gradient(180deg, #4c6971 0%, #35515a 100%);
+        color: #fff;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          0 22px 50px rgba(53, 81, 90, 0.28);
+        animation: badgePop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .thanks-badge::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        border-radius: inherit;
+        background: radial-gradient(
+          circle,
+          rgba(141, 215, 247, 0.35),
+          rgba(255, 104, 200, 0.14) 45%,
+          transparent 70%
+        );
+        filter: blur(14px);
+        z-index: -1;
+        animation: pulseBloom 3.2s ease-in-out infinite;
+      }
+
+      .thanks-badge iconify-icon {
+        font-size: 2.4rem;
+        animation: badgeCheck 0.7s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      @keyframes badgePop {
+        from {
+          opacity: 0;
+          transform: scale(0.6);
+          filter: blur(8px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes badgeCheck {
+        from {
+          opacity: 0;
+          transform: scale(0.4) rotate(-12deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(0);
+        }
+      }
+
+      .step-card {
+        transition:
+          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.5s ease,
+          border-color 0.5s ease;
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(202, 122, 174, 0.4);
+        box-shadow: 0 24px 48px rgba(76, 105, 113, 0.12);
+      }
+    </style>
+  </head>
+
+  <body
+    class="antialiased min-h-screen selection:bg-[#4C6971] selection:text-white"
+  >
+    <div class="noise"></div>
+
+    <div
+      class="page-shell w-full bg-white/55 backdrop-blur-sm relative min-h-screen flex flex-col"
+    >
+      <div class="absolute inset-0 bg-grid opacity-40 pointer-events-none"></div>
+      <div class="page-flow page-flow-left" aria-hidden="true"></div>
+      <div class="page-flow page-flow-center" aria-hidden="true"></div>
+      <div class="page-flow page-flow-right" aria-hidden="true"></div>
+
+      <!-- HEADER -->
+      <header class="sticky top-0 z-50 bg-white/76 backdrop-blur-xl">
+        <div class="px-6 md:px-8 py-4 flex items-center justify-between gap-4">
+          <a href="index.html" class="flex items-center gap-3 focus-ring-target rounded-2xl">
+            <div
+              class="w-11 h-11 rounded-[1.35rem] border border-white/80 bg-white/90 flex items-center justify-center shadow-[0_12px_40px_rgba(76,105,113,0.08)]"
+            >
+              <span class="text-sm font-display tracking-tight text-[#35515A]"
+                >MR</span
+              >
+            </div>
+            <div>
+              <span
+                class="block text-sm font-display tracking-tight text-[#35515A]"
+                >Método (Re)Construir</span
+              >
+              <span
+                class="block text-[10px] font-mono uppercase tracking-[0.32em] text-[#CA7AAE]"
+                >Clínica Essencial Life</span
+              >
+            </div>
+          </a>
+
+          <a
+            href="index.html"
+            class="focus-ring-target hidden sm:inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-mono uppercase tracking-[0.24em] text-[#5F7880] hover:text-[#35515A] transition-colors"
+          >
+            <iconify-icon icon="solar:arrow-left-linear" class="text-sm"></iconify-icon>
+            Voltar ao site
+          </a>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main class="flex-1 relative z-10 flex items-center">
+        <section
+          class="bloom-section w-full relative overflow-hidden"
+          id="hero"
+        >
+          <div
+            class="section-backdrop absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(141,215,247,0.22),_transparent_26%),radial-gradient(circle_at_82%_14%,_rgba(255,104,200,0.1),_transparent_24%)]"
+          ></div>
+
+          <div
+            class="relative z-10 mx-auto max-w-3xl px-6 md:px-8 py-16 md:py-24 text-center"
+          >
+            <!-- Selo de confirmação -->
+            <div class="reveal-up flex justify-center">
+              <span class="thanks-badge">
+                <iconify-icon icon="solar:check-circle-bold"></iconify-icon>
+              </span>
+            </div>
+
+            <span
+              class="reveal-up delay-100 mt-8 inline-flex items-center gap-2 rounded-full border border-[#CA7AAE]/30 bg-white/70 px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.3em] text-[#CA7AAE]"
+            >
+              <iconify-icon icon="solar:heart-linear" class="text-sm"></iconify-icon>
+              Primeiro passo dado
+            </span>
+
+            <h1
+              class="reveal-up delay-150 mt-6 font-editorial text-[2.8rem] md:text-[4.2rem] leading-[0.95] tracking-tight text-[#35515A]"
+            >
+              Obrigada por
+              <span class="italic text-[#CA7AAE]">confiar</span> na sua
+              reconstrução
+            </h1>
+
+            <p
+              class="reveal-up delay-200 mt-6 mx-auto max-w-xl text-[1.05rem] md:text-lg leading-relaxed text-[#4C6971]"
+            >
+              Sua decisão de recomeçar já é um ato de coragem. Recebi o seu
+              interesse com muito cuidado — e o próximo passo é uma conversa
+              acolhedora para entendermos a sua história e agendarmos a sua
+              consulta.
+            </p>
+
+            <!-- CTA principal: WhatsApp -->
+            <div class="reveal-up delay-250 mt-10 flex flex-col items-center gap-4">
+              <a
+                href="https://wa.me/5567992539476?text=Ol%C3%A1%20C%C3%A1ssia%2C%20acabei%20de%20garantir%20a%20minha%20reconstru%C3%A7%C3%A3o%20e%20gostaria%20de%20agendar%20a%20minha%20consulta."
+                target="_blank"
+                rel="noopener"
+                class="btn-beam btn-whatsapp focus-ring-target inline-block px-[1px] py-[1px] rounded-full"
+                data-magnetic
+              >
+                <span
+                  class="btn-beam-content px-7 py-4 rounded-full text-xs font-mono uppercase tracking-[0.26em] gap-2.5"
+                >
+                  <iconify-icon
+                    icon="ri:whatsapp-line"
+                    class="text-[1.15rem]"
+                  ></iconify-icon>
+                  Agendar minha consulta no WhatsApp
+                </span>
+              </a>
+              <p class="text-sm leading-relaxed text-[#67838A]">
+                Toque no botão para falar diretamente comigo. Sem burocracia,
+                com acolhimento.
+              </p>
+            </div>
+
+            <!-- Próximos passos -->
+            <div
+              class="reveal-up delay-300 mt-14 grid gap-4 sm:grid-cols-3 text-left"
+            >
+              <div
+                class="step-card rounded-[1.4rem] border border-[#4C6971]/12 bg-white/70 backdrop-blur-sm p-5"
+              >
+                <span
+                  class="flex w-9 h-9 items-center justify-center rounded-full bg-[#35515A] text-white text-xs font-mono"
+                  >01</span
+                >
+                <h3
+                  class="mt-3 font-display text-[15px] tracking-tight text-[#35515A]"
+                >
+                  Chame no WhatsApp
+                </h3>
+                <p class="mt-1.5 text-[13px] leading-relaxed text-[#67838A]">
+                  Envie sua mensagem — já deixei o texto pronto para você.
+                </p>
+              </div>
+
+              <div
+                class="step-card rounded-[1.4rem] border border-[#4C6971]/12 bg-white/70 backdrop-blur-sm p-5"
+              >
+                <span
+                  class="flex w-9 h-9 items-center justify-center rounded-full bg-[#CA7AAE] text-white text-xs font-mono"
+                  >02</span
+                >
+                <h3
+                  class="mt-3 font-display text-[15px] tracking-tight text-[#35515A]"
+                >
+                  Escolha o melhor horário
+                </h3>
+                <p class="mt-1.5 text-[13px] leading-relaxed text-[#67838A]">
+                  Vamos alinhar juntas a data e o formato do seu atendimento.
+                </p>
+              </div>
+
+              <div
+                class="step-card rounded-[1.4rem] border border-[#4C6971]/12 bg-white/70 backdrop-blur-sm p-5"
+              >
+                <span
+                  class="flex w-9 h-9 items-center justify-center rounded-full bg-[#56C4CF] text-white text-xs font-mono"
+                  >03</span
+                >
+                <h3
+                  class="mt-3 font-display text-[15px] tracking-tight text-[#35515A]"
+                >
+                  Comece sua reconstrução
+                </h3>
+                <p class="mt-1.5 text-[13px] leading-relaxed text-[#67838A]">
+                  Na consulta, damos sequência com clareza e propósito.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer
+        class="story-footer relative z-10 overflow-hidden bg-[linear-gradient(180deg,#4C6971,#35515A)] text-white"
+        id="footer"
+      >
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(141,215,247,0.16),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(255,104,200,0.12),_transparent_26%)]"
+        ></div>
+
+        <div class="relative z-10 px-8 md:px-10 py-8">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+          >
+            <div class="min-w-0">
+              <span
+                class="text-[11px] font-mono uppercase tracking-[0.34em] text-white/36"
+                >psicóloga</span
+              >
+              <h3
+                class="mt-2 text-[1.3rem] leading-[0.94] font-display tracking-tight"
+              >
+                Cássia Mary Lima
+              </h3>
+              <p class="mt-1.5 text-[13px] leading-relaxed text-white/70">
+                CRP 14/06670-9
+              </p>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+              <a
+                href="#"
+                aria-label="Instagram profissional"
+                class="focus-ring-target w-10 h-10 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-white/78 transition-all hover:bg-white/14 hover:text-white"
+              >
+                <iconify-icon icon="ri:instagram-line" class="text-[1.05rem]"></iconify-icon>
+              </a>
+              <a
+                href="https://wa.me/5567992539476?text=Ol%C3%A1%20C%C3%A1ssia%2C%20gostaria%20de%20tirar%20uma%20d%C3%BAvida."
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+                class="focus-ring-target w-10 h-10 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-white/78 transition-all hover:bg-white/14 hover:text-white"
+              >
+                <iconify-icon icon="ri:whatsapp-line" class="text-[1.05rem]"></iconify-icon>
+              </a>
+              <a
+                href="mailto:mt.reconstruir@gmail.com?subject=Contato%20%E2%80%94%20M%C3%A9todo%20(Re)Construir"
+                aria-label="Enviar e-mail"
+                class="focus-ring-target w-10 h-10 rounded-full bg-white/8 border border-white/10 flex items-center justify-center text-white/78 transition-all hover:bg-white/14 hover:text-white"
+              >
+                <iconify-icon icon="solar:letter-linear" class="text-[1.05rem]"></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-5 h-px bg-white/10"></div>
+
+          <div
+            class="mt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+          >
+            <p class="text-[13px] leading-relaxed text-white/68">
+              Este site não substitui atendimento de emergência. Se você está em
+              crise, ligue 188.
+            </p>
+            <span
+              class="text-[11px] font-mono uppercase tracking-[0.24em] text-white/56"
+              >Direitos reservados 2026 Cássia Mary</span
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/shared/blossom-core.js"></script>
+    <script>
+      (function () {
+        if (!window.BlossomCore) {
+          return;
+        }
+        window.BlossomCore.initPage({
+          sectionSelector: ".bloom-section",
+        });
+        window.BlossomCore.initPageAtmosphere({
+          shellSelector: ".page-shell",
+        });
+      })();
+    </script>
+  </body>
+</html>
