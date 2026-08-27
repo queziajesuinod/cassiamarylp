@@ -2,16 +2,21 @@ FROM alpine:3.20 AS source
 
 ARG REPO_URL=https://github.com/queziajesuinod/cassiamarylp.git
 ARG REPO_REF=main
+# Muda a cada build (ex.: --build-arg CACHE_BUST=$(date +%s)) para forçar
+# o git clone a rebaixar o código mais recente, ignorando o cache do Docker.
+ARG CACHE_BUST=0
 
 WORKDIR /tmp
 
 RUN apk add --no-cache git
-RUN git clone --depth 1 --branch "${REPO_REF}" "${REPO_URL}" project
+RUN echo "cache-bust: ${CACHE_BUST}" && \
+    git clone --depth 1 --branch "${REPO_REF}" "${REPO_URL}" project
 
 FROM nginx:1.27-alpine
 
 COPY --from=source /tmp/project/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=source /tmp/project/index.html /usr/share/nginx/html/index.html
+COPY --from=source /tmp/project/obrigado.html /usr/share/nginx/html/obrigado.html
 COPY --from=source /tmp/project/assets /usr/share/nginx/html/assets
 
 EXPOSE 80
