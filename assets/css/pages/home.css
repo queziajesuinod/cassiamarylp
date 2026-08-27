@@ -269,9 +269,7 @@
         }
 
         .text-outline {
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(216, 113, 170, 0.84);
-            text-shadow: 0 0 18px rgba(141, 215, 247, 0.22);
+            color: rgba(216, 113, 170, 0.84);
         }
 
         .text-reveal-wrapper {
